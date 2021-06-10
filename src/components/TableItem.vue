@@ -1,18 +1,18 @@
 <template>
   <div class="table-card">
-    <div class="table-card__id cell w-1">
+    <div class="table-card__id cell w-1 md-w-full">
       <p class="title">ID</p>
       <p>{{ itemId }}</p>
     </div>
-    <div class="table-card__date cell w-2">
+    <div class="table-card__date cell w-2 md-w-full">
       <p class="title">Date</p>
       <p>{{ itemDate }}</p>
     </div>
-    <div class="table-card__name cell w-3">
+    <div class="table-card__name cell w-3 md-w-full">
       <p class="title">Name</p>
       <p>{{ itemName }}</p>
     </div>
-    <div class="table-card__money cell w-4">
+    <div class="table-card__money cell w-4 md-w-full">
       <p class="title">Money</p>
       <p>{{ itemMoney }}</p>
     </div>

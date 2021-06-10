@@ -18,7 +18,7 @@
     </div>
     <div class="table-content__body container p-0">
       <table-item
-        v-for="item in data" :key="item.id"
+        v-for="item in items" :key="item.id"
         :item-id="item.id"
         :item-date="item.date"
         :item-name="item.name"
@@ -28,15 +28,17 @@
   </div>
 </template>
 <script>
-import { mapGetters } from 'vuex';
 import TableItem from '@/components/TableItem.vue';
 
 export default {
   name: 'TableContent',
   components: { TableItem },
-  data: () => ({}),
-  computed: {
-    ...mapGetters(['data']),
+  props: {
+    items: {
+      type: Array,
+      required: true,
+    },
   },
+  data: () => ({}),
 };
 </script>

@@ -4,7 +4,7 @@
       <ui-money v-model="moneyFilter" />
     </div>
 
-    <table-content></table-content>
+    <table-content :items="pageItems"></table-content>
 
     <div class="data-table__paginator">
       <ui-pagination
@@ -17,6 +17,7 @@
 
 <script>
 import TableContent from '@/components/TableContent.vue';
+import { mapGetters } from 'vuex';
 
 export default {
 
@@ -40,8 +41,13 @@ export default {
   }),
 
   computed: {
+    ...mapGetters(['data']),
     pageCount() {
       return Math.ceil(this.rows.length / this.pageSize);
+    },
+    pageItems() {
+      const minLimit = (this.page - 1) * this.pageSize;
+      return this.data.slice(minLimit, minLimit + this.pageSize);
     },
   },
 };

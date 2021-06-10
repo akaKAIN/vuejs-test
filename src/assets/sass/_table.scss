@@ -6,16 +6,22 @@
 .row-wrapper {
   display: flex;
   flex-direction: row;
-  border: 1px solid #5c636a;
   @media (max-width: 768px) {
     display: none;
   }
 }
+
 .header-cell {
   border: 1px solid #5c636a;
   margin: 0;
   text-align: center;
   padding: 0.2rem 0;
+}
+
+.md-w-full {
+  @media(max-width: 768px) {
+    width: 100%!important;
+  }
 }
 
 .table-content {
@@ -64,18 +70,6 @@
         padding: 0;
         margin: 0;
 
-        &__id {
-        }
-
-        &__date {
-        }
-
-        &__name {
-        }
-
-        &__money {
-        }
-
         .cell {
           border: 1px solid #5c636a;
           margin: 0;
@@ -92,5 +86,4 @@
       }
     }
   }
-
 }
