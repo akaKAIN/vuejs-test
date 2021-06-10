@@ -1,39 +1,96 @@
+.data-table__filter {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.row-wrapper {
+  display: flex;
+  flex-direction: row;
+  border: 1px solid #5c636a;
+  @media (max-width: 768px) {
+    display: none;
+  }
+}
+.header-cell {
+  border: 1px solid #5c636a;
+  margin: 0;
+  text-align: center;
+  padding: 0.2rem 0;
+}
+
 .table-content {
   margin: 1rem 0;
-  @media (min-width: 768px) {
-    display: flex;
-    flex-wrap: wrap;
+
+  &__header {
   }
 
-  &__header {}
   &__body {
     .table-card {
+      display: flex;
+      flex-direction: column;
       border: 1px solid #5c636a;
       border-radius: .2rem;
       padding: 1rem;
       margin-top: 1rem;
+
       &:first-child {
         margin-top: 0;
       }
 
-      &__id {}
-      &__date {}
-      &__name {}
-      &__money {}
-
       .cell {
-        margin-top: 1rem;
-        @media (min-width: 768px) {
-          border: 1px solid #5c636a;
-        }
-
+        text-align: left;
+        padding: .5rem;
 
         &:first-child {
-          margin-top: 0;
         }
       }
     }
   }
+}
 
+@media (min-width: 768px) {
+  .table-content {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+
+    &__header {
+    }
+
+    &__body {
+      .table-card {
+        flex-direction: row;
+        border: none;
+        padding: 0;
+        margin: 0;
+
+        &__id {
+        }
+
+        &__date {
+        }
+
+        &__name {
+        }
+
+        &__money {
+        }
+
+        .cell {
+          border: 1px solid #5c636a;
+          margin: 0;
+          text-align: center;
+
+          .title {
+            display: none;
+          }
+
+
+          &:first-child {
+          }
+        }
+      }
+    }
+  }
 
 }
