@@ -1,4 +1,7 @@
+import mockedGetPayments from '@/mocks/getPayments';
 import axios from 'axios';
+
+const { VUE_APP_IS_MOCKED } = process.env;
 
 /**
  * @var {Axios}
@@ -13,11 +16,17 @@ const instance = axios.create({
  * @param {Object} params
  * @returns {Promise}
  */
-const getPayments = (params = {}) => instance.request({
+let getPayments;
+
+getPayments = (params = {}) => instance.request({
   method: 'get',
   url: '/api/v1/payments',
   params,
 });
+
+if (VUE_APP_IS_MOCKED) {
+  getPayments = mockedGetPayments;
+}
 
 export default {
   instance,

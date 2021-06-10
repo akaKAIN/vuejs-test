@@ -1,0 +1,39 @@
+.table-content {
+  margin: 1rem 0;
+  @media (min-width: 768px) {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  &__header {}
+  &__body {
+    .table-card {
+      border: 1px solid #5c636a;
+      border-radius: .2rem;
+      padding: 1rem;
+      margin-top: 1rem;
+      &:first-child {
+        margin-top: 0;
+      }
+
+      &__id {}
+      &__date {}
+      &__name {}
+      &__money {}
+
+      .cell {
+        margin-top: 1rem;
+        @media (min-width: 768px) {
+          border: 1px solid #5c636a;
+        }
+
+
+        &:first-child {
+          margin-top: 0;
+        }
+      }
+    }
+  }
+
+
+}

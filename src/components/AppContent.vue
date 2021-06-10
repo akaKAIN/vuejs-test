@@ -25,7 +25,7 @@
 </template>
 
 <script>
-import { mapActions, mapState } from 'vuex';
+import { mapActions, mapGetters } from 'vuex';
 
 export default {
 
@@ -57,7 +57,7 @@ export default {
   }),
 
   computed: {
-    ...mapState([
+    ...mapGetters([
       'isLoading',
       'isCached',
       'data',

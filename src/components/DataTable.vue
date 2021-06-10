@@ -4,7 +4,7 @@
       <ui-money v-model="moneyFilter" />
     </div>
 
-    <!-- Your component code here-->
+    <table-content></table-content>
 
     <div class="data-table__paginator">
       <ui-pagination
@@ -16,10 +16,12 @@
 </template>
 
 <script>
+import TableContent from '@/components/TableContent.vue';
+
 export default {
 
   name: 'DataTable',
-
+  components: { TableContent },
   props: {
     rows: {
       type: Array,
