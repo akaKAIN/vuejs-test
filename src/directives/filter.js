@@ -15,7 +15,7 @@ export const filterDirective = {
 
     // сохранение в элементе форматированной строки
     if (matchStr.includes('.')) {
-      el.value = matchStr.split('.').map(numberDigitsFilter).join('.');
+      el.value = matchStr.split('.').slice(0, 2).map(numberDigitsFilter).join('.');
     } else {
       el.value = numberDigitsFilter(matchStr);
     }

@@ -3,7 +3,7 @@
     class="ui-money"
     type="text"
     v-model="valueInput"
-    v-filter="'[0-9., ]'"
+    v-filter="filterRE"
   />
 </template>
 
@@ -22,12 +22,17 @@ export default {
   data() {
     return {
       valueInput: '',
+      filterRE: '[0-9,.]',
     };
   },
   watch: {
-    valueInput() {
-      // console.log('watch', this.valueInput, strToNum(this.valueInput));
-      this.$emit('input', strToNum(this.valueInput));
+    valueInput(val) {
+      if (!val) {
+        this.$emit('input', '');
+        return;
+      }
+      const result = strToNum(this.valueInput, this.filterRE);
+      this.$emit('input', !result ? '' : result);
     },
   },
 };
