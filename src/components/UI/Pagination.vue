@@ -16,6 +16,7 @@
 export default {
 
   name: 'UiPagination',
+  emits: ['input'],
 
   props: {
     value: {

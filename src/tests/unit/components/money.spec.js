@@ -16,15 +16,17 @@ const testCases = [
 ];
 
 describe('Money component', () => {
-  test.each(testCases)('%p (%p) -> %p', async (input, value, emitted) => {
+  test.each(testCases)('%p (%p) -> %p', async (inputVal, displayedVal, emittedVal) => {
     const wrapper = mount(Money);
-    const control = wrapper.find('input');
+    const control = wrapper.find('input[type="text"]');
 
-    control.setValue(input);
+    control.setValue(inputVal);
 
     await wrapper.vm.$nextTick();
 
-    expect(control.element.value).toBe(value);
-    expect(wrapper.emitted('input')[1]).toEqual(emitted === undefined ? undefined : [emitted]);
+    expect(control.element.value).toBe(displayedVal);
+    console.log('emittedVal', emittedVal, emittedVal === undefined ? undefined : [emittedVal]);
+    console.log('wrapperEmitList', wrapper.emitted());
+    expect(wrapper.emitted('input')[0]).toEqual(emittedVal === undefined ? undefined : [emittedVal]);
   });
 });

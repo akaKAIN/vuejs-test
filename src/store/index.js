@@ -31,18 +31,21 @@ export default new Vuex.Store({
         }
       });
     },
+    setIsCached(state, value) {
+      state.isCached = value;
+    },
   },
 
   actions: {
-    async load({ commit }, params = {}) {
+    async load({ state, commit }, params = {}) {
       commit('setState', { isLoading: true });
 
       try {
         const { data } = await api.getPayments(params);
-        console.log(data);
 
         if (Array.isArray(data)) {
           commit('setState', { data });
+          commit('setIsCached', true);
         }
       } catch (e) {
         // eslint-disable-next-line no-alert
@@ -50,6 +53,10 @@ export default new Vuex.Store({
       } finally {
         commit('setState', { isLoading: false });
       }
+    },
+
+    async clearCache({ commit, dispatch }) {
+      await dispatch('load');
     },
   },
 });

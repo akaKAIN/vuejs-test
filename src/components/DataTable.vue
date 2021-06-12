@@ -45,9 +45,15 @@ export default {
     pageCount() {
       return Math.ceil(this.rows.length / this.pageSize);
     },
+    filteredData() {
+      if (!this.moneyFilter || Number.isNaN(this.moneyFilter)) {
+        return this.data;
+      }
+      return this.data.filter((dataItem) => dataItem.money <= this.moneyFilter);
+    },
     pageItems() {
       const minLimit = (this.page - 1) * this.pageSize;
-      return this.data.slice(minLimit, minLimit + this.pageSize);
+      return this.filteredData.slice(minLimit, minLimit + this.pageSize);
     },
   },
 };
